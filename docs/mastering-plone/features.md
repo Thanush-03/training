@@ -179,7 +179,7 @@ For example, {guilabel}`edit` is only shown if the current user has the permissi
 For production level deployments you have to configure a mail server.
 Later in the training we will create some content rules that send emails when new content is put on our site.
 
-For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
+For the training you don't have to configure a working mailserver. The training setup uses `Products.PrintingMailHost`, which patches Products.MailHost.MailHost directly and prints all emails to the console instead of sending them. It is not an add-on to be installed or enabled in the add-on control panel.
 ```
 
 - Server: {samp}`localhost`
@@ -189,7 +189,7 @@ For the training you don't have to configure a working mailserver since the Plon
 - Site 'From' address: Your email address
 
 ```{only} not presentation
-Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
+To verify your mail settings and see the mail content printed to the console, use the Classic UI at http://localhost:8080/Plone/@@mail-controlpanel. Plone will not
 actually send the email to the receivers address unless your remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
 ```
 
